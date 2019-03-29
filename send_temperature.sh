@@ -1,5 +1,8 @@
 #!/bin/bash
 
+. /etc/environment
+aws=/usr/local/bin/aws
+
 set -euo pipefail
 
 hostname=`hostname`
@@ -16,14 +19,14 @@ gpu_temp=$(
     | awk -F "[' =]" '{print $3}'
 )
 
-aws --region=us-west-2 \
+$aws --region=us-west-2 \
   cloudwatch put-metric-data \
     --namespace "$hostname" \
     --value "$cpu_temp" \
     --metric-name cpu-temperature
 
-aws --region=us-west-2 \
+$aws --region=us-west-2 \
   cloudwatch put-metric-data \
     --namespace "$hostname" \
     --value "$gpu_temp" \
-    --metric-name cpu-temperature
+    --metric-name gpu-temperature
