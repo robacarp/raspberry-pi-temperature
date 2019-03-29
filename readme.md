@@ -1,4 +1,6 @@
-Script to send CPU / GPU temperature from a raspberry-pi to AWS Cloudwatch.
+### Send CPU / GPU temperature from a raspberry-pi to AWS Cloudwatch
+
+![](temperature-graph.png)
 
 #### Installation
 
